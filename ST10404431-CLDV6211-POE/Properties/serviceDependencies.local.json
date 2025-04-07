@@ -1,0 +1,21 @@
+{
+  "dependencies": {
+    "compute.appService1": {
+      "group": "connections",
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Web/sites/ST10404431-EventEase",
+      "type": "compute.appService.windows"
+    },
+    "mssql2": {
+      "secretStore": "LocalSecretsFile",
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/cld-sql-server/databases/EventEaseDB",
+      "type": "mssql.azure",
+      "connectionId": "ConnectionStrings:DatabaseConnection1"
+    },
+    "mssql1": {
+      "secretStore": "LocalSecretsFile",
+      "resourceId": null,
+      "type": "mssql.onprem",
+      "connectionId": "ConnectionStrings:DatabaseConnection"
+    }
+  }
+}

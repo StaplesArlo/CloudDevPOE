@@ -1,0 +1,54 @@
+﻿@page
+@model ST10404431CLDV6211POE.Views.Home.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Venue</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Venue.VenueID" />
+            <div class="form-group">
+                
+                <label asp-for="Venue.VenueName" class="control-label"></label>
+                <input asp-for="Venue.VenueName" class="form-control" />
+                <span asp-validation-for="Venue.VenueName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                
+                <label asp-for="Venue.Location" class="control-label"></label>
+                <input asp-for="Venue.Location" class="form-control" />
+                <span asp-validation-for="Venue.Location" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                
+                <label asp-for="Venue.Capacity" class="control-label"></label>
+                <input asp-for="Venue.Capacity" class="form-control" />
+                <span asp-validation-for="Venue.Capacity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                
+                <label asp-for="Venue.ImageURL" class="control-label"></label>
+                <input asp-for="Venue.ImageURL" class="form-control" />
+                <span asp-validation-for="Venue.ImageURL" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

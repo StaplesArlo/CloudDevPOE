@@ -1,0 +1,45 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Arlo\\OneDrive - ADvTECH Ltd\\Documents\\CLDV_6211\\ST10404431-CLDV6211-POE\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5AC0B555-149B-4BE8-98F9-6F327C7EDFF2}|ST10404431CLDV6211POE.csproj|c:\\users\\arlo\\onedrive - advtech ltd\\documents\\cldv_6211\\st10404431-cldv6211-poe\\controllers\\venuescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5AC0B555-149B-4BE8-98F9-6F327C7EDFF2}|ST10404431CLDV6211POE.csproj|solutionrelative:controllers\\venuescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "VenuesController.cs",
+              "DocumentMoniker": "C:\\Users\\Arlo\\OneDrive - ADvTECH Ltd\\Documents\\CLDV_6211\\ST10404431-CLDV6211-POE\\Controllers\\VenuesController.cs",
+              "RelativeDocumentMoniker": "Controllers\\VenuesController.cs",
+              "ToolTip": "C:\\Users\\Arlo\\OneDrive - ADvTECH Ltd\\Documents\\CLDV_6211\\ST10404431-CLDV6211-POE\\Controllers\\VenuesController.cs",
+              "RelativeToolTip": "Controllers\\VenuesController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-07T18:37:40.201Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

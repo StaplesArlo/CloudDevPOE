@@ -1,0 +1,57 @@
+{
+  "dependencies": {
+    "compute.appService1": {
+      "restored": false,
+      "restoreTime": "2025-04-07T08:17:41.7899009Z"
+    },
+    "mssql2": {
+      "restored": false,
+      "restoreTime": "2025-04-07T08:17:41.7899009Z"
+    },
+    "secrets.user": {
+      "restored": true,
+      "restoreTime": "2025-04-07T08:17:41.7899009Z"
+    },
+    "mssql1": {
+      "restored": true,
+      "restoreTime": "2025-04-06T21:33:58.0174783Z"
+    }
+  },
+  "parameters": {
+    "compute.appService1.subscriptionId": {
+      "Name": "compute.appService1.subscriptionId",
+      "Type": "subscription",
+      "Value": "e31273bf-0dae-4395-a8b5-33f801de7c65"
+    },
+    "mssql2.resourceGroupName": {
+      "Name": "mssql2.resourceGroupName",
+      "Type": "resourceGroup",
+      "Value": "AZ-JHB-RSG-IIEMSA-ST10404431-TER"
+    },
+    "mssql2.subscriptionId": {
+      "Name": "mssql2.subscriptionId",
+      "Type": "subscription",
+      "Value": "e31273bf-0dae-4395-a8b5-33f801de7c65"
+    },
+    "compute.appService1.resourceGroupName": {
+      "Name": "compute.appService1.resourceGroupName",
+      "Type": "resourceGroup",
+      "Value": "AZ-JHB-RSG-IIEMSA-ST10404431-TER"
+    },
+    "mssql2.resourceGroupLocation": {
+      "Name": "mssql2.resourceGroupLocation",
+      "Type": "location",
+      "Value": "southafricanorth"
+    },
+    "compute.appService1.resourceGroupLocation": {
+      "Name": "compute.appService1.resourceGroupLocation",
+      "Type": null,
+      "Value": "southafricanorth"
+    },
+    "compute.appService1.resourceName": {
+      "Name": "compute.appService1.resourceName",
+      "Type": null,
+      "Value": "ST10404431-EventEase"
+    }
+  }
+}

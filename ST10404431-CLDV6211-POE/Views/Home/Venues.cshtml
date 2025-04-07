@@ -1,0 +1,45 @@
+﻿@model List<ST10404431CLDV6211POE.Models.Venue>
+
+@{
+    ViewBag.Title = "Venues";
+}
+
+@if (Model != null && Model.Any())
+{
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(model => Model.First().VenueName)</th>
+                <th>@Html.DisplayNameFor(model => Model.First().Location)</th>
+                <th>@Html.DisplayNameFor(model => Model.First().Capacity)</th>
+                <th>@Html.DisplayNameFor(model => Model.First().ImageURL)</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.VenueName)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Location)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Capacity)</td>
+                    <td>
+                        <img src="@item.ImageURL" class="img-thumbnail" width="100" alt="@item.VenueName">
+                    </td>
+                    <td>
+                        <a asp-page="./Edit" asp-route-id="@item.VenueID" class="btn btn-warning btn-sm">Edit</a>
+                        <a asp-page="./Details" asp-route-id="@item.VenueID" class="btn btn-info btn-sm">Details</a>
+                        <a asp-page="./Delete" asp-route-id="@item.VenueID" class="btn btn-danger btn-sm">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <div class="alert alert-info">
+        <p>No venues available. Want to add one?</p>
+        <a asp-page="Create" class="btn btn-primary">Create New Venue</a>
+    </div>
+}

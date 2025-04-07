@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.Title = "Book Event";
+}
+
+<form method="post" action="@Url.Action("BookEvent", "Venue")">
+    <label for="EventName">Event Name:</label>
+    <input type="text" name="EventName" required /><br />
+
+    <label for="EventDate">Event Date:</label>
+    <input type="date" name="EventDate" required /><br />
+
+    <label for="VenueName">Venue Name:</label>
+    <input type="text" name="VenueName" required /><br />
+
+    <button type="submit" class="btn btn-success">Book Event</button>
+</form>
