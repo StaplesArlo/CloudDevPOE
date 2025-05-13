@@ -1,0 +1,43 @@
+﻿@model IEnumerable<ST10404431CLDV6211POE.Models.Booking>
+
+@{
+    ViewData["Title"] = "Bookings";
+}
+
+<h1 class="mb-4 text-center bg-primary text-white p-3 rounded">
+    <i class="bi bi-calendar-check"></i> Book with Us
+</h1> <!-- Styled Header -->
+<hr />
+
+<p>
+    <a asp-action="NewBooking" class="btn btn-primary">Book An Event</a>
+</p> <!-- CREATE BOOKING -->
+
+<table class="table table-striped table-hover table-bordered">
+    <thead class="table-dark">
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.BookingDate)</th>
+            <th>@Html.DisplayNameFor(model => model.Event)</th>
+            <th>@Html.DisplayNameFor(model => model.Venue)</th>
+            <th>Actions</th>
+        </tr>
+    </thead> <!-- HEADER -->
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.BookingDate.ToString("MMMM dd, yyyy")</td> 
+                <td>@Html.DisplayFor(modelItem => item.Event.EventName)</td> 
+                <td>@Html.DisplayFor(modelItem => item.Venue.VenueName)</td> 
+                <td>
+                    <div class="btn-group">
+                        <a asp-action="UpdateBooking" asp-route-id="@item.BookingID" class="btn btn-sm btn-warning">✏ Update</a>
+                        <a asp-action="BookingDetails" asp-route-id="@item.BookingID" class="btn btn-sm btn-info">ℹ Details</a>
+                        <a asp-action="DeleteBooking" asp-route-id="@item.BookingID" class="btn btn-sm btn-danger">🗑 Delete</a>
+                    </div>
+                </td>
+            </tr> <!-- ROW -->
+        }
+    </tbody> <!-- BODY -->
+</table> <!-- TABLE -->

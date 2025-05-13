@@ -1,0 +1,60 @@
+﻿@model IEnumerable<ST10404431CLDV6211POE.Models.Event>
+
+@{
+    ViewData["Title"] = "Events";
+}
+
+<h1 class="mb-4 text-center bg-primary text-white p-3 rounded">
+    <i class="bi bi-calendar-event"></i> Events
+</h1> <!-- Styled Header -->
+<hr />
+
+<!-- Search Bar -->
+<form asp-action="EventsIndex" method="get" class="d-flex mb-3">
+    <input type="text" name="searchTerm" class="form-control me-2"
+           placeholder="Search events..." value="@Context.Request.Query["searchTerm"]" />
+    <button type="submit" class="btn btn-outline-primary">Search</button>
+    <a asp-action="EventsIndex" class="btn btn-outline-secondary ms-2">Clear</a>
+</form> <!-- SEARCH -->
+<!-- Sorting Options -->
+<section class="text-end mb-3">
+    <a asp-action="EventsIndex" asp-route-sort="ascending" class="btn btn-outline-secondary">Sort by Date ↑</a>
+    <a asp-action="EventsIndex" asp-route-sort="descending" class="btn btn-outline-secondary">Sort by Date ↓</a>
+</section> <!-- SORT OPTIONS -->
+
+<p>
+    <a asp-action="NewEvent" class="btn btn-primary">Create New Event</a>
+</p> <!-- CREATE EVENT -->
+
+<table class="table table-striped table-hover table-bordered">
+    <thead class="table-dark">
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.EventName)</th>
+            <th>@Html.DisplayNameFor(model => model.EventDate)</th>
+            <th>@Html.DisplayNameFor(model => model.Venue.VenueName)</th>
+            <th>@Html.DisplayNameFor(model => model.Description)</th>
+            
+            <th>Actions</th>
+        </tr>
+    </thead> <!-- HEADER -->
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.EventName)</td>
+                <td>@item.EventDate.ToString("MMMM dd, yyyy")</td>
+                <td>@item.Venue.VenueName</td>
+                <td>@Html.DisplayFor(modelItem => item.Description)</td>
+               
+                <td>
+                    <div class="btn-group">
+                        <a asp-action="UpdateEvent" asp-route-id="@item.EventID" class="btn btn-sm btn-warning">✏ Update</a>
+                        <a asp-action="EventDetails" asp-route-id="@item.EventID" class="btn btn-sm btn-info">ℹ Details</a>
+                        <a asp-action="DeleteEvent" asp-route-id="@item.EventID" class="btn btn-sm btn-danger">🗑 Delete</a>
+                    </div>
+                </td>
+            </tr> <!-- ROW -->
+        }
+    </tbody> <!-- BODY -->
+</table> <!-- TABLE -->

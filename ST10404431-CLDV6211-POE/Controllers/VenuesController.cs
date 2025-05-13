@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿#nullable disable
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ST10404431CLDV6211POE.Models;
 
@@ -18,16 +14,23 @@ namespace ST10404431CLDV6211POE.Controllers
             _context = context;
         }
 
-        // GET: Venues
-        public async Task<IActionResult> Index()
+        //-------------------- VenuesIndex with Search --------------------//
+        public async Task<IActionResult> VenuesIndex(string searchTerm)
         {
-            return View(await _context.Venues.ToListAsync());
+            var venues = _context.Venues.AsQueryable();
+
+            if (!string.IsNullOrEmpty(searchTerm))
+            {
+                venues = venues.Where(v => v.VenueName.Contains(searchTerm) || v.Location.Contains(searchTerm));
+            }
+
+            return View(await venues.ToListAsync());
         }
 
-        // GET: Venues/Details/5
-        public async Task<IActionResult> Details(string id)
+        //-------------------- VenueDetails --------------------//
+        public async Task<IActionResult> VenueDetails(string id)
         {
-            if (id == null)
+            if (string.IsNullOrEmpty(id))
             {
                 return NotFound();
             }
@@ -42,28 +45,27 @@ namespace ST10404431CLDV6211POE.Controllers
             return View(venue);
         }
 
-        // GET: Venues/Create
-        public IActionResult Create()
+        //-------------------- AddVenue --------------------//
+        public IActionResult AddVenue()
         {
             return View();
         }
 
-       
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("VenueID,VenueName,Location,Capacity,ImageURL")] Venue venue)
+        public async Task<IActionResult> AddVenue([Bind("VenueID,VenueName,Location,Capacity,ImageURL,Category")] Venue venue)
         {
             if (ModelState.IsValid)
             {
                 _context.Add(venue);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(VenuesIndex));
             }
             return View(venue);
         }
 
-        // GET: Venues/Edit/5
-        public async Task<IActionResult> Edit(string id)
+        //-------------------- UpdateVenue --------------------//
+        public async Task<IActionResult> UpdateVenue(string id)
         {
             if (id == null)
             {
@@ -78,12 +80,9 @@ namespace ST10404431CLDV6211POE.Controllers
             return View(venue);
         }
 
-        // POST: Venues/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("VenueID,VenueName,Location,Capacity,ImageURL")] Venue venue)
+        public async Task<IActionResult> UpdateVenue(string id, [Bind("VenueID,VenueName,Location,Capacity,ImageURL,Category")] Venue venue)
         {
             if (id != venue.VenueID)
             {
@@ -108,21 +107,15 @@ namespace ST10404431CLDV6211POE.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(VenuesIndex));
             }
+
             return View(venue);
         }
-
-        // GET: Venues/Delete/5
-        public async Task<IActionResult> Delete(string id)
+        //-------------------- DeleteVenue --------------------//
+        public async Task<IActionResult> DeleteVenue(string id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var venue = await _context.Venues
-                .FirstOrDefaultAsync(m => m.VenueID == id);
+            var venue = await _context.Venues.FirstOrDefaultAsync(m => m.VenueID == id);
             if (venue == null)
             {
                 return NotFound();
@@ -131,8 +124,7 @@ namespace ST10404431CLDV6211POE.Controllers
             return View(venue);
         }
 
-        // POST: Venues/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [HttpPost, ActionName("DeleteVenue")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)
         {
@@ -143,7 +135,7 @@ namespace ST10404431CLDV6211POE.Controllers
             }
 
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(VenuesIndex));
         }
 
         private bool VenueExists(string id)

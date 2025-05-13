@@ -1,40 +1,52 @@
-﻿@{
-    ViewData["Title"] = "EventEase - Your Ultimate Event Booking Platform";
+﻿
+
+@{
+    ViewData["Title"] = "Home Page";
+    var events = Model.Item1; // List of events
+    var venues = Model.Item2; // List of venues
+   // var bookings = Model.Item3; // List of bookings
 }
 
-<div class="container text-center">
-    <h1>Welcome to EventEase</h1>
-    <p class="lead">Find and book the perfect venue for your next event.</p>
-
-    <img src="/images/event_banner.jpg" class="img-fluid rounded" alt="EventEase Banner" />
-
-    <div class="row mt-4">
-        <div class="col-md-6">
-            <h2>Explore Venues</h2>
-            <p>Discover a variety of venues for concerts, conferences, weddings, and more.</p>
-            <a asp-controller="Home" asp-action="Venues" class="btn btn-primary">View Venues</a>
-        </div>
-        <div class="col-md-6">
-            <h2>Book an Event</h2>
-            <p>Seamlessly book a venue for your special occasion and manage event details.</p>
-            <a asp-controller="Home" asp-action="BookEvent" class="btn btn-primary">Book Event</a>
-        </div>
+<div class="container mt-5">
+    <div class="text-center">
+        <h1 class="mb-4 text-center bg-primary text-white p-3 rounded">
+            <i class="bi bi-building"></i> Welcome to EventEase
+        </h1>
+        
+        <p class="lead">With us, events are an ease</p>
     </div>
 
-    <hr />
+    <hr class="my-4" />
 
     <div class="row">
-        <div class="col-md-4">
-            <h3>Easy Booking</h3>
-            <p>Reserve venues with just a few clicks. Hassle-free experience guaranteed!</p>
+        <div class="col-md-6">
+            <h2>Popular Venues</h2>
+            <ul class="list-group">
+               
+               
+                    @foreach (var venue in venues)
+                    {
+                        <li class="list-group-item">
+                            @venue.VenueName - @venue.Location
+                        </li>
+                    }
+            </ul>
+            <a class="btn btn-primary mt-3" href="/Venues/VenuesIndex">View All Venues</a>
+
         </div>
-        <div class="col-md-4">
-            <h3>Exclusive Offers</h3>
-            <p>Enjoy special discounts and premium event services tailored for you.</p>
-        </div>
-        <div class="col-md-4">
-            <h3>Trusted by Thousands</h3>
-            <p>Join our community and experience seamless event planning.</p>
+        <div class="col-md-6">
+            <h2>Upcoming Events</h2>
+            <ul class="list-group">
+
+                @foreach (var eventItem in events)
+                {
+                    <li class="list-group-item">
+                        @eventItem.EventName - @eventItem.EventDate.ToString("MMMM dd, yyyy")
+                    </li>
+                }
+
+            </ul>
+            <a class="btn btn-primary mt-3" href="/Events/EventsIndex">View All Events</a>
         </div>
     </div>
 </div>

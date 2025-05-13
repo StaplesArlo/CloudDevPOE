@@ -1,0 +1,79 @@
+﻿@model ST10404431CLDV6211POE.Models.Venue
+
+@{
+    ViewData["Title"] = "Update Venue";
+}
+
+<h1 class="text-center bg-warning text-dark p-3 rounded">
+    <i class="bi bi-building"></i> Update Venue
+</h1> <!-- Styled Header -->
+<hr />
+
+<section class="container" style="max-width: 700px;">
+    @* CONTAINER *@
+    <section class="row justify-content-center">
+        @* ROW *@
+        <section class="col-md-8">
+            @* COLUMN *@
+            <div class="card shadow-lg p-4">
+                @* BOX *@
+                <form asp-action="UpdateVenue" method="post">
+                    <input type="hidden" asp-for="VenueID" /> <!-- Preserve ID -->
+
+                    <section class="form-group mb-3">
+                        @* VENUE NAME *@
+                        <label asp-for="VenueName" class="form-label fw-bold">Venue Name</label>
+                        <input asp-for="VenueName" class="form-control" placeholder="Enter Venue Name" required />
+                        <span asp-validation-for="VenueName" class="text-danger"></span>
+                    </section>
+
+                    <section class="form-group mb-3">
+                        @* LOCATION *@
+                        <label asp-for="Location" class="form-label fw-bold">Location</label>
+                        <input asp-for="Location" class="form-control" placeholder="Enter Location" required />
+                        <span asp-validation-for="Location" class="text-danger"></span>
+                    </section>
+
+                    <section class="form-group mb-3">
+                        @* CAPACITY *@
+                        <label asp-for="Capacity" class="form-label fw-bold">Capacity</label>
+                        <input asp-for="Capacity" class="form-control" type="number" min="1" placeholder="Enter Capacity" required />
+                        <span asp-validation-for="Capacity" class="text-danger"></span>
+                    </section>
+
+                    <section class="form-group mb-3">
+                        @* CATEGORY *@
+                        <label asp-for="Category" class="form-label fw-bold">Category</label>
+                        <input asp-for="Category" class="form-control" placeholder="Enter Category" required />
+                        <span asp-validation-for="Category" class="text-danger"></span>
+                    </section>
+
+                    <section class="form-group mb-3">
+                        @* IMAGE URL *@
+                        <label asp-for="ImageURL" class="form-label fw-bold">Image URL</label>
+                        <input asp-for="ImageURL" class="form-control" type="url" id="imageURL" placeholder="Enter Image URL" required />
+                        <span asp-validation-for="ImageURL" class="text-danger"></span>
+                    </section>
+
+                    <section class="text-center">
+                        <img id="previewImage" class="rounded shadow-lg mt-2" style="max-width: 100%;" />
+                    </section>
+
+                    <hr />
+
+                    <section class="d-flex justify-content-between">
+                        @* BUTTONS *@
+                        <button type="submit" class="btn btn-success px-4">✔ Update Venue</button> <!-- Submit -->
+                        <a class="btn btn-secondary px-4" href="@Url.Action("VenuesIndex", "Venues")">⬅ Back to Venues</a> <!-- Cancel -->
+                    </section>
+                </form>
+            </div> @* BOX *@
+        </section> @* COLUMN *@
+    </section> @* ROW *@
+</section> @* CONTAINER *@
+
+<script>
+    document.getElementById("imageURL").addEventListener("input", function () {
+        document.getElementById("previewImage").src = this.value;
+    });
+</script>

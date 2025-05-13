@@ -10,12 +10,20 @@
    "PreserveCasingWithRegex": true,
    "ProjectRootNamespace": "ST10404431-CLDV6211-POE",
    "Schemas": null,
-   "SelectedHandlebarsLanguage": 2,
+   "SelectedHandlebarsLanguage": 3,
    "SelectedToBeGenerated": 0,
    "T4TemplatePath": null,
    "Tables": [
       {
+         "Name": "[dbo].[Bookings]",
+         "ObjectType": 0
+      },
+      {
          "Name": "[dbo].[Events]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Temp]",
          "ObjectType": 0
       },
       {
@@ -32,7 +40,7 @@
    "UseDateOnlyTimeOnly": false,
    "UseDbContextSplitting": false,
    "UseDecimalDataAnnotationForSprocResult": true,
-   "UseFluentApiOnly": true,
+   "UseFluentApiOnly": false,
    "UseHandleBars": false,
    "UseHierarchyId": false,
    "UseInflector": true,

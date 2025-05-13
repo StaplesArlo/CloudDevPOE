@@ -1,0 +1,69 @@
+﻿@model ST10404431CLDV6211POE.Models.Venue
+
+@{
+    ViewData["Title"] = "Add Venue";
+}
+
+<h1 class="text-center bg-primary text-white p-3 rounded">
+    <i class="bi bi-building"></i> Add a New Venue
+</h1> <!-- Styled Header -->
+<hr />
+
+<section class="container" style="max-width: 700px;">
+    @* CONTAINER *@
+    <section class="row justify-content-center">
+        @* ROW *@
+        <section class="col-md-8">
+            @* COLUMN *@
+            <div class="card shadow-lg p-4">
+                @* BOX *@
+                <form method="post">
+                    <section asp-validation-summary="ModelOnly" class="text-danger"></section>
+
+                    <section class="form-group mb-3">
+                        @* VENUE NAME *@
+                        <label asp-for="VenueName" class="form-label fw-bold"><span class="text-danger">*</span> Venue Name</label>
+                        <input asp-for="VenueName" class="form-control" placeholder="Enter Venue Name" required />
+                        <span asp-validation-for="VenueName" class="text-danger"></span>
+                    </section>
+
+                    <section class="form-group mb-3">
+                        @* LOCATION *@
+                        <label asp-for="Location" class="form-label fw-bold"><span class="text-danger">*</span> Location</label>
+                        <input asp-for="Location" class="form-control" placeholder="Enter Venue Location" required />
+                        <span asp-validation-for="Location" class="text-danger"></span>
+                    </section>
+
+                    <section class="form-group mb-3">
+                        @* CAPACITY *@
+                        <label asp-for="Capacity" class="form-label fw-bold">Capacity</label>
+                        <input asp-for="Capacity" class="form-control" type="number" min="1" placeholder="Enter Capacity" required />
+                        <span asp-validation-for="Capacity" class="text-danger"></span>
+                    </section>
+
+                    <section class="form-group mb-3">
+                        @* CATEGORY *@
+                        <label asp-for="Category" class="form-label fw-bold">Category</label>
+                        <input asp-for="Category" class="form-control" placeholder="Enter Category" required />
+                        <span asp-validation-for="Category" class="text-danger"></span>
+                    </section>
+
+                    <section class="form-group mb-3">
+                        @* IMAGE URL *@
+                        <label asp-for="ImageURL" class="form-label fw-bold"><span class="text-danger">*</span> Image URL</label>
+                        <input asp-for="ImageURL" class="form-control" type="url" placeholder="Enter Image URL" required />
+                        <span asp-validation-for="ImageURL" class="text-danger"></span>
+                    </section>
+
+                    <hr />
+
+                    <section class="d-flex justify-content-between">
+                        @* BUTTONS *@
+                        <button type="submit" class="btn btn-success px-4">✔ Add Venue</button> <!-- Submit -->
+                        <a class="btn btn-secondary px-4" href="@Url.Action("VenuesIndex", "Venues")">⬅ Back to Venues</a> <!-- Cancel -->
+                    </section>
+                </form>
+            </div> @* BOX *@
+        </section> @* COLUMN *@
+    </section> @* ROW *@
+</section> @* CONTAINER *@

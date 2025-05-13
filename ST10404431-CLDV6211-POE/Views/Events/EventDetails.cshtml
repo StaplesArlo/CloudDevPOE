@@ -1,0 +1,46 @@
+﻿@model ST10404431CLDV6211POE.Models.Event
+
+@{
+    ViewData["Title"] = "Event Details";
+}
+
+<h1 class="text-center bg-primary text-white p-3 rounded">
+    <i class="bi bi-info-circle"></i> Event Details
+</h1> <!-- Styled Header -->
+<hr />
+
+<section class="container" style="max-width: 1000px;">
+    @* CONTAINER *@
+    <section class="row justify-content-center">
+        @* ROW *@
+        <section class="col-md-8">
+            @* COLUMN *@
+            <div class="card shadow-lg p-4">
+                @* BOX *@
+                <dl class="row">
+                    <dt class="col-sm-3 fw-bold">@Html.DisplayNameFor(model => model.EventName)</dt>
+                    <dd class="col-sm-9">@Html.DisplayFor(model => model.EventName)</dd>
+
+                    <dt class="col-sm-3 fw-bold">@Html.DisplayNameFor(model => model.EventDate)</dt>
+                    <dd class="col-sm-9">@Model.EventDate.ToString("MMMM dd, yyyy")</dd>
+
+                    <dt class="col-sm-3 fw-bold">@Html.DisplayNameFor(model => model.Venue)</dt>
+                    <dd class="col-sm-9">@Html.DisplayFor(model => model.Venue.VenueName)</dd>
+
+                    <dt class="col-sm-3 fw-bold">@Html.DisplayNameFor(model => model.Description)</dt>
+                    <dd class="col-sm-9">@Html.DisplayFor(model => model.Description)</dd>
+
+
+                </dl>
+            </div> @* BOX *@
+        </section> @* COLUMN *@
+    </section> @* ROW *@
+</section> @* CONTAINER *@
+
+<section class="text-center mt-3">
+    @* ACTION BUTTONS *@
+    <div class="btn-group">
+        <a asp-action="UpdateEvent" asp-route-id="@Model.EventID" class="btn btn-warning px-3">✏ Update Event</a>
+        <a class="btn btn-primary px-3" href="@Url.Action("EventsIndex", "Events")">⬅ Back to Events</a>
+    </div> @* BUTTONS *@
+</section>

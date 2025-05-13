@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "OkjYru6S40c=",
+  "dgSpecHash": "lgobDl19nsE=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Arlo\\OneDrive - ADvTECH Ltd\\Documents\\CLDV_6211\\ST10404431-CLDV6211-POE\\ST10404431CLDV6211POE.csproj",
+  "projectFilePath": "C:\\Users\\Arlo\\OneDrive - ADvTECH Ltd\\Documents\\CLDV_6211\\repos\\ST10404431-CLDV6211-POE\\ST10404431CLDV6211POE.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Arlo\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\Arlo\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

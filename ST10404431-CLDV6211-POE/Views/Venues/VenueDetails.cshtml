@@ -1,0 +1,53 @@
+﻿@model ST10404431CLDV6211POE.Models.Venue
+
+@{
+    ViewData["Title"] = ViewData["Title"] ?? "Venue Details";
+}
+
+<h1 id="venueDetails" class="text-center bg-primary text-white p-3 rounded">
+    <i class="bi bi-info-circle"></i> Venue Details
+</h1> <!-- Styled Header -->
+<hr />
+
+<section class="container" style="max-width: 1000px;">
+    @* CONTAINER *@
+    <section class="row justify-content-center">
+        @* ROW *@
+        <section class="col-md-9">
+            @* COLUMN *@
+            <div class="card shadow-lg p-5">
+                @* BOX *@
+                <dl class="row" aria-labelledby="venueDetails">
+                    <dt class="col-sm-3 fw-bold">@Html.DisplayNameFor(model => model.VenueName)</dt>
+                    <dd class="col-sm-9">@Html.DisplayFor(model => model.VenueName)</dd>
+
+                    <dt class="col-sm-3 fw-bold">@Html.DisplayNameFor(model => model.Location)</dt>
+                    <dd class="col-sm-9">@Html.DisplayFor(model => model.Location)</dd>
+
+                    <dt class="col-sm-3 fw-bold">@Html.DisplayNameFor(model => model.Capacity)</dt>
+                    <dd class="col-sm-9">@Html.DisplayFor(model => model.Capacity)</dd>
+
+                    <dt class="col-sm-3 fw-bold">@Html.DisplayNameFor(model => model.ImageURL)</dt>
+                    <dd class="col-sm-9">
+                        @if (!string.IsNullOrEmpty(Model.ImageURL))
+                        {
+                            <img src="@Model.ImageURL" alt="Venue Image"
+                                 class="img-fluid img-thumbnail border border-dark"
+                                 style="max-width: 250px; object-fit: cover;" /> <!-- Venue Image -->
+                        }
+                        else
+                        {
+                            <span class="text-muted">No Image Available</span> <!-- No Image Placeholder -->
+                        }
+                    </dd> @* IMAGE *@
+                </dl>
+            </div> @* BOX *@
+        </section> @* COLUMN *@
+    </section> @* ROW *@
+</section> @* CONTAINER *@
+
+<section class="text-center mt-3">
+    @* ACTION BUTTONS *@
+    <a asp-action="UpdateVenue" asp-route-id="@Model.VenueID" class="btn btn-warning btn-sm">✏ Update Venue</a> @* UPDATE BUTTON *@
+    <a class="btn btn-secondary btn-sm ms-2" href="@Url.Action("VenuesIndex", "Venues")">⬅ Back to Venues</a> @* BACK BUTTON *@
+</section> @* ACTIONS *@

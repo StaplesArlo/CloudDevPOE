@@ -1,0 +1,87 @@
+﻿@model ST10404431CLDV6211POE.Models.Booking
+
+@{
+    ViewData["Title"] = "Create New Booking";
+}
+
+<h1 class="text-center bg-primary text-white p-3 rounded">
+    <i class="bi bi-calendar-check"></i> Create a Booking
+</h1> <!-- Styled Header -->
+<hr />
+
+<section class="container" style="max-width: 1000px;">
+    @* CONTAINER *@
+    <section class="row justify-content-center">
+        @* ROW *@
+        <section class="col-md-8">
+            @* COLUMN *@
+            <div class="card shadow-lg p-4">
+                @* BOX *@
+                <form asp-action="NewBooking">
+                    <section asp-validation-summary="ModelOnly" class="text-danger"></section>
+
+                    <section class="form-group mb-3">
+                        @* BOOKING ID (Readonly) *@
+                        <label asp-for="BookingID" class="form-label fw-bold"></label>
+                        <input asp-for="BookingID" class="form-control" readonly />
+                        <span asp-validation-for="BookingID" class="text-danger"></span>
+                    </section>
+
+                    <section class="form-group mb-3">
+                        @* EVENT SELECTION *@
+                        <label asp-for="EventID" class="form-label fw-bold"></label>
+                        <select asp-for="EventID" class="form-control" asp-items="ViewBag.EventID">
+                            <option value="">Select an Event</option>
+                        </select>
+                        <span asp-validation-for="EventID" class="text-danger"></span>
+                    </section>
+
+                    <section class="form-group mb-3">
+                        @* VENUE SELECTION *@
+                        <label asp-for="VenueID" class="form-label fw-bold"></label>
+                        <select asp-for="VenueID" class="form-control" asp-items="ViewBag.VenueName" id="VenueID">
+                            <option value="">Select a Venue</option>
+                        </select>
+                        <span asp-validation-for="VenueID" class="text-danger"></span>
+                    </section>
+
+                    <section class="form-group mb-3">
+                        @* BOOKING DATE *@
+                        <label asp-for="BookingDate" class="form-label fw-bold"></label>
+                        <input asp-for="BookingDate" class="form-control" type="date" id="bookingDate" />
+                        <span asp-validation-for="BookingDate" class="text-danger"></span>
+                    </section>
+
+                    <hr />
+
+                    <section class="d-flex justify-content-between">
+                        @* BUTTONS *@
+                        <button type="submit" class="btn btn-success px-4">✔ Confirm Booking</button>
+                        <a class="btn btn-secondary px-4" href="@Url.Action("BookingIndex", "Bookings")">⬅ Back to Bookings</a>
+                    </section>
+                </form>
+            </div> @* BOX *@
+        </section> @* COLUMN *@
+    </section> @* ROW *@
+</section> @* CONTAINER *@
+
+<script>
+    document.getElementById("VenueID").addEventListener("change", function () {
+        let venueID = this.value;
+        let dateInput = document.getElementById("bookingDate");
+
+        fetch(`/Bookings/GetBookedDates?venueID=${venueID}`)
+            .then(response => response.json())
+            .then(bookedDates => {
+                dateInput.addEventListener("input", function () {
+                    if (bookedDates.includes(this.value)) {
+                        alert("❌ This venue is already booked for the selected date.");
+                        this.value = "";
+                        this.style.backgroundColor = "#ffcccc"; // Red for unavailable date
+                    } else {
+                        this.style.backgroundColor = "#ccffcc"; // Green for available date
+                    }
+                });
+            });
+    });
+</script>

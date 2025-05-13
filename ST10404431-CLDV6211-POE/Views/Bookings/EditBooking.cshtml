@@ -1,0 +1,58 @@
+﻿@model ST10404431CLDV6211POE.Models.Booking
+
+@{
+    ViewData["Title"] = "Edit Booking";
+}
+
+<h1 class="text-center bg-warning text-dark p-3 rounded">
+    <i class="bi bi-pencil-square"></i> Edit Booking
+</h1> <!-- Styled Header -->
+<hr />
+
+<section class="container" style="max-width: 1000px;">
+    @* CONTAINER *@
+    <section class="row justify-content-center">
+        @* ROW *@
+        <section class="col-md-8">
+            @* COLUMN *@
+            <div class="card shadow-lg p-4">
+                @* BOX *@
+                <form asp-action="EditBooking">
+                    <section asp-validation-summary="ModelOnly" class="text-danger"></section>
+                    <input type="hidden" asp-for="BookingID" /> <!-- Preserving BookingID -->
+
+                    <section class="form-group mb-3">
+                        @* EVENT SELECTION *@
+                        <label asp-for="EventID" class="form-label fw-bold"></label>
+                        <select asp-for="EventID" class="form-control" asp-items="ViewBag.EventID">
+                            <option value="">Select an Event</option>
+                        </select>
+                        <span asp-validation-for="EventID" class="text-danger"></span>
+                    </section>
+
+                    <section class="form-group mb-3">
+                        @* VENUE SELECTION *@
+                        <label asp-for="VenueID" class="form-label fw-bold"></label>
+                        <select asp-for="VenueID" class="form-control" asp-items="ViewBag.VenueName"></select> <!-- FIXED -->
+                        <span asp-validation-for="VenueID" class="text-danger"></span>
+                    </section>
+
+                    <section class="form-group mb-3">
+                        @* BOOKING DATE *@
+                        <label asp-for="BookingDate" class="form-label fw-bold"></label>
+                        <input asp-for="BookingDate" class="form-control" type="date" />
+                        <span asp-validation-for="BookingDate" class="text-danger"></span>
+                    </section>
+
+                    <hr />
+
+                    <section class="d-flex justify-content-between">
+                        @* BUTTONS *@
+                        <button type="submit" class="btn btn-success px-4">✔ Save Changes</button> @* SAVE BUTTON *@
+                        <a class="btn btn-secondary px-4" href="@Url.Action("BookingIndex", "Bookings")">⬅ Back to Bookings</a> @* BACK BUTTON *@
+                    </section>
+                </form>
+            </div> @* BOX *@
+        </section> @* COLUMN *@
+    </section> @* ROW *@
+</section> @* CONTAINER *@

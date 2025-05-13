@@ -1,0 +1,63 @@
+﻿@model ST10404431CLDV6211POE.Models.Event
+
+@{
+    ViewData["Title"] = "Edit Event";
+}
+
+<h1 class="text-center bg-primary text-white p-3 rounded">
+    <i class="bi bi-pencil-square"></i> Edit Event
+</h1> <!-- Styled Header -->
+<hr />
+
+<section class="container" style="max-width: 700px;">
+    @* CONTAINER *@
+    <section class="row justify-content-center">
+        @* ROW *@
+        <section class="col-md-8">
+            @* COLUMN *@
+            <div class="card shadow-lg p-4">
+                @* BOX *@
+                <form asp-action="UpdateEvent">
+                    <section asp-validation-summary="ModelOnly" class="text-danger"></section>
+                    <input type="hidden" asp-for="EventID" /> <!-- Hidden field to preserve EventID -->
+
+                    <section class="form-group mb-3">
+                        @* VENUE SELECTION *@
+                        <label asp-for="VenueID" class="form-label fw-bold"></label>
+                        <select asp-for="VenueID" class="form-control" asp-items="ViewBag.VenueID"></select>
+                        <span asp-validation-for="VenueID" class="text-danger"></span>
+                    </section>
+
+                    <section class="form-group mb-3">
+                        @* EVENT NAME *@
+                        <label asp-for="EventName" class="form-label fw-bold"></label>
+                        <input asp-for="EventName" class="form-control" placeholder="Enter Event Name" />
+                        <span asp-validation-for="EventName" class="text-danger"></span>
+                    </section>
+
+                    <section class="form-group mb-3">
+                        @* EVENT DATE *@
+                        <label asp-for="EventDate" class="form-label fw-bold"></label>
+                        <input asp-for="EventDate" class="form-control" type="date" />
+                        <span asp-validation-for="EventDate" class="text-danger"></span>
+                    </section>
+
+                    <section class="form-group mb-3">
+                        @* DESCRIPTION *@
+                        <label asp-for="Description" class="form-label fw-bold"></label>
+                        <textarea asp-for="Description" class="form-control" placeholder="Enter Event Description"></textarea>
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </section>
+
+                    <hr />
+
+                    <section class="d-flex justify-content-between">
+                        @* BUTTONS *@
+                        <button type="submit" class="btn btn-success px-4">✔ Save Changes</button> <!-- Save -->
+                        <a class="btn btn-secondary px-4" href="@Url.Action("EventsIndex", "Events")">Cancel</a> <!-- Cancel -->
+                    </section>
+                </form>
+            </div> @* BOX *@
+        </section> @* COLUMN *@
+    </section> @* ROW *@
+</section> @* CONTAINER *@

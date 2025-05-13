@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Arlo\\OneDrive - ADvTECH Ltd\\Documents\\CLDV_6211\\ST10404431-CLDV6211-POE\\ST10404431CLDV6211POE.csproj": {}
+    "C:\\Users\\Arlo\\OneDrive - ADvTECH Ltd\\Documents\\CLDV_6211\\repos\\ST10404431-CLDV6211-POE\\ST10404431CLDV6211POE.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Arlo\\OneDrive - ADvTECH Ltd\\Documents\\CLDV_6211\\ST10404431-CLDV6211-POE\\ST10404431CLDV6211POE.csproj": {
+    "C:\\Users\\Arlo\\OneDrive - ADvTECH Ltd\\Documents\\CLDV_6211\\repos\\ST10404431-CLDV6211-POE\\ST10404431CLDV6211POE.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Arlo\\OneDrive - ADvTECH Ltd\\Documents\\CLDV_6211\\ST10404431-CLDV6211-POE\\ST10404431CLDV6211POE.csproj",
+        "projectUniqueName": "C:\\Users\\Arlo\\OneDrive - ADvTECH Ltd\\Documents\\CLDV_6211\\repos\\ST10404431-CLDV6211-POE\\ST10404431CLDV6211POE.csproj",
         "projectName": "ST10404431CLDV6211POE",
-        "projectPath": "C:\\Users\\Arlo\\OneDrive - ADvTECH Ltd\\Documents\\CLDV_6211\\ST10404431-CLDV6211-POE\\ST10404431CLDV6211POE.csproj",
+        "projectPath": "C:\\Users\\Arlo\\OneDrive - ADvTECH Ltd\\Documents\\CLDV_6211\\repos\\ST10404431-CLDV6211-POE\\ST10404431CLDV6211POE.csproj",
         "packagesPath": "C:\\Users\\Arlo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Arlo\\OneDrive - ADvTECH Ltd\\Documents\\CLDV_6211\\ST10404431-CLDV6211-POE\\obj\\",
+        "outputPath": "C:\\Users\\Arlo\\OneDrive - ADvTECH Ltd\\Documents\\CLDV_6211\\repos\\ST10404431-CLDV6211-POE\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -95,7 +95,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.202/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
